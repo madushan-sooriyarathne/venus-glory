@@ -1,5 +1,8 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "../styles/global-styles";
+import theme from "@style/theme";
 
 const App: React.FC<AppProps> = ({
   Component,
@@ -10,7 +13,10 @@ const App: React.FC<AppProps> = ({
       <Head>
         <title>Venus Glory | Natural cosmetics for gentle skincare</title>
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 };
