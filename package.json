@@ -15,5 +15,20 @@
   "bugs": {
     "url": "https://github.com/madushan-sooriyarathne/venus-glory/issues"
   },
-  "homepage": "https://github.com/madushan-sooriyarathne/venus-glory#readme"
+  "homepage": "https://github.com/madushan-sooriyarathne/venus-glory#readme",
+  "dependencies": {
+    "framer-motion": "^4.1.17",
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.2",
+    "@types/react": "^17.0.31",
+    "@types/react-dom": "^17.0.10",
+    "@types/styled-components": "^5.1.15",
+    "babel-plugin-styled-components": "^1.13.3",
+    "typescript": "^4.4.4"
+  }
 }
