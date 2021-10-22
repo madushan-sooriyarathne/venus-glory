@@ -4,7 +4,10 @@
   "description": "Official E-commerce website for Venus Glory Cosmetics",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "export": "next export"
   },
   "repository": {
     "type": "git",
