@@ -1,0 +1,19 @@
+{
+  "name": "venus-glory",
+  "version": "1.0.0",
+  "description": "Official E-commerce website for Venus Glory Cosmetics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madushan-sooriyarathne/venus-glory.git"
+  },
+  "author": "Madushan Sooriyarathne <hello@madushan.dev>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madushan-sooriyarathne/venus-glory/issues"
+  },
+  "homepage": "https://github.com/madushan-sooriyarathne/venus-glory#readme"
+}
