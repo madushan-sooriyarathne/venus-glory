@@ -19,6 +19,7 @@ const Header = styled.header`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 100;
 
   width: 100%;
   height: auto;
@@ -69,16 +70,16 @@ const NavLink = styled(motion.a)<NavLinkProps>`
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: ${(props) => props.theme.colors.primaryDark};
+  color: ${(props) => props.theme.colors.blackLight};
   transition: color 0.3s ease-in-out;
   position: relative;
   cursor: pointer;
 
   &:hover {
-    color: ${(props) => props.theme.colors.secondaryDark};
+    color: ${(props) => props.theme.colors.black};
 
     &::after {
-      background-color: ${(props) => props.theme.colors.secondaryDark};
+      background-color: ${(props) => props.theme.colors.black};
       animation: 0.3s linear 0s forwards alternate ${fill};
     }
   }
@@ -91,7 +92,7 @@ const NavLink = styled(motion.a)<NavLinkProps>`
     right: 0;
     width: 100%;
     height: ${(props) => (props.active ? "1px" : "0")};
-    background-color: ${(props) => props.theme.colors.primaryDark};
+    background-color: ${(props) => props.theme.colors.blackLight};
     transition: background-color 0.2s ease-in-out;
   }
 `;
@@ -99,12 +100,12 @@ const NavLink = styled(motion.a)<NavLinkProps>`
 const NavIcon = styled.svg`
   width: 2rem;
   height: 2rem;
-  stroke: ${(props) => props.theme.colors.primaryDark};
+  stroke: ${(props) => props.theme.colors.blackLight};
   transition: stroke 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    stroke: ${(props) => props.theme.colors.secondaryDark};
+    stroke: ${(props) => props.theme.colors.black};
   }
 `;
 export { Header, Logo, Nav, NavLink, NavItemGroup, NavIcon };
