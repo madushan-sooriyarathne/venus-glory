@@ -2,6 +2,7 @@ import { ReactNodeArray, ReactNode, Children } from "react";
 import Head from "next/head";
 
 import { PageContainer, ContentWrapper } from "./styles";
+import NavBar from "../nav-bar";
 
 interface Props {
   title?: string;
@@ -17,6 +18,7 @@ const Page: React.FC<Props> = ({
       <Head>
         <title>{title}</title>
       </Head>
+      <NavBar />
       <ContentWrapper>{children}</ContentWrapper>
     </PageContainer>
   );
