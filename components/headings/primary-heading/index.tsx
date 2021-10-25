@@ -6,15 +6,17 @@ interface Props {
   children: ReactNode;
   align?: Alignment;
   light?: boolean;
+  small?: boolean;
 }
 
 const PrimaryHeading: React.FC<Props> = ({
   children,
   align = "center",
   light = false,
+  small = false,
 }: Props): JSX.Element => {
   return (
-    <Heading align={align} light={light}>
+    <Heading align={align} light={light} small={small}>
       {children}
     </Heading>
   );
