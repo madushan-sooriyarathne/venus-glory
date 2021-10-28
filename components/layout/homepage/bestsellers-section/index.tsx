@@ -3,7 +3,14 @@ import PrimaryHeading from "@components/headings/primary-heading";
 import Paragraph from "@components/paragraph";
 import ProductCard from "@components/product-card";
 import TitleGroup from "@components/title-group";
-import { BestSellersSection, Products, Title } from "./styles";
+import {
+  BestSellersSection,
+  ControlButton,
+  Products,
+  ProductSlider,
+  SliderControls,
+  Title,
+} from "./styles";
 
 const BestSellers: React.FC = (): JSX.Element => {
   return (
@@ -18,10 +25,20 @@ const BestSellers: React.FC = (): JSX.Element => {
           <PrimaryButton route="/shop">Shop All</PrimaryButton>
         </TitleGroup>
       </Title>
-      <Products>
-        <ProductCard />
-        <ProductCard />
-      </Products>
+      <ProductSlider>
+        <Products>
+          <ProductCard />
+          <ProductCard />
+        </Products>
+        <SliderControls>
+          <ControlButton>
+            <use xlinkHref="/assets/svg/sprites.svg#arrow-left" />
+          </ControlButton>
+          <ControlButton>
+            <use xlinkHref="/assets/svg/sprites.svg#arrow-right" />
+          </ControlButton>
+        </SliderControls>
+      </ProductSlider>
     </BestSellersSection>
   );
 };
