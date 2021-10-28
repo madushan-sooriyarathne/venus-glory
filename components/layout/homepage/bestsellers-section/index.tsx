@@ -1,8 +1,9 @@
 import PrimaryButton from "@components/buttons/primary-button";
 import PrimaryHeading from "@components/headings/primary-heading";
 import Paragraph from "@components/paragraph";
+import ProductCard from "@components/product-card";
 import TitleGroup from "@components/title-group";
-import { BestSellersSection, Title } from "./styles";
+import { BestSellersSection, Products, Title } from "./styles";
 
 const BestSellers: React.FC = (): JSX.Element => {
   return (
@@ -17,6 +18,10 @@ const BestSellers: React.FC = (): JSX.Element => {
           <PrimaryButton route="/shop">Shop All</PrimaryButton>
         </TitleGroup>
       </Title>
+      <Products>
+        <ProductCard />
+        <ProductCard />
+      </Products>
     </BestSellersSection>
   );
 };

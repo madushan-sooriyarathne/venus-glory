@@ -20,6 +20,16 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 3rem;
 `;
 
-export { BestSellersSection, Title };
+const Products = styled.div`
+  grid-area: pr;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-template-rows: minmax(min-content, 1fr);
+  gap: 5rem;
+`;
+
+export { BestSellersSection, Title, Products };
