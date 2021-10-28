@@ -6,6 +6,19 @@ declare global {
     blurUrl: string;
     alt?: string;
   }
+
+  interface Product {
+    id: string;
+    name: string;
+    price: string;
+    size: string;
+    image: string;
+    otherImages: string[];
+    category: string;
+    discount: string;
+    new: boolean;
+    bestseller: boolean;
+  }
 }
 
 export {};
