@@ -1,46 +1,90 @@
 import Link from "next/link";
 
-import { Header, Logo, Nav, NavLink, NavItemGroup, NavIcon } from "./styles";
+import {
+  Header,
+  Logo,
+  Nav,
+  NavLink,
+  NavItemGroup,
+  NavIcon,
+  SubMenuPanel,
+  subMenuPanelVariants,
+} from "./styles";
 import { navLinks } from "@site-data";
-import { AnimateSharedLayout } from "framer-motion";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 const NavBar: React.FC = (): JSX.Element => {
   const router = useRouter();
 
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [subMenuOpened, setSubMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <Header>
-      <Logo src="/assets/logo/vg-logo.svg" alt="Venus Glory Logo"></Logo>
-      <Nav>
-        <NavItemGroup>
-          <AnimateSharedLayout>
+    <Header scrolled={scrolled || subMenuOpened}>
+      <AnimateSharedLayout>
+        <Logo
+          src="/assets/logo/vg-logo.svg"
+          alt="Venus Glory Logo"
+          scrolled={scrolled}
+          layout
+        ></Logo>
+
+        <Nav layout>
+          <NavItemGroup>
             {navLinks.map((link) => (
-              <Link href={link.url}>
-                {router.pathname === link.url ? (
-                  <NavLink active={true} layout layoutId="underline">
-                    {link.name}
-                  </NavLink>
-                ) : (
-                  <NavLink active={false} layout>
-                    {link.name}
-                  </NavLink>
-                )}
+              <Link href={link.url} key={link.name.toLowerCase()}>
+                <NavLink
+                  active={router.pathname === link.url}
+                  onHoverStart={() => setSubMenuOpen(true)}
+                  onHoverEnd={() => setSubMenuOpen(false)}
+                >
+                  {link.name}
+                </NavLink>
               </Link>
             ))}
-          </AnimateSharedLayout>
-        </NavItemGroup>
-        <NavItemGroup>
-          <NavIcon>
-            <use xlinkHref="/assets/svg/sprites.svg#cart" />
-          </NavIcon>
-          <NavIcon>
-            <use xlinkHref="/assets/svg/sprites.svg#fav" />
-          </NavIcon>
-          <NavIcon>
-            <use xlinkHref="/assets/svg/sprites.svg#user" />
-          </NavIcon>
-        </NavItemGroup>
-      </Nav>
+          </NavItemGroup>
+          <NavItemGroup>
+            <NavIcon>
+              <use xlinkHref="/assets/svg/sprites.svg#cart" />
+            </NavIcon>
+            <NavIcon>
+              <use xlinkHref="/assets/svg/sprites.svg#fav" />
+            </NavIcon>
+            <NavIcon>
+              <use xlinkHref="/assets/svg/sprites.svg#user" />
+            </NavIcon>
+          </NavItemGroup>
+        </Nav>
+        <AnimatePresence>
+          {subMenuOpened && (
+            <SubMenuPanel
+              variants={subMenuPanelVariants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              transition={{
+                delay: 0.1,
+              }}
+            />
+          )}
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </Header>
   );
 };

@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
+import { motion, Variants } from "framer-motion";
 
 const fill = keyframes`
   from {
@@ -14,7 +14,11 @@ const fill = keyframes`
 
 `;
 
-const Header = styled.header`
+interface HeaderProps {
+  scrolled: boolean;
+}
+
+const Header = styled.header<HeaderProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +27,7 @@ const Header = styled.header`
 
   width: 100%;
   height: auto;
-  padding: 2rem 10rem;
+  padding: 1rem 10rem;
 
   display: grid;
   grid-template-columns: min-content minmax(min-content, 1fr);
@@ -32,17 +36,37 @@ const Header = styled.header`
   align-items: center;
   justify-items: start;
   gap: 5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transform-origin: center top;
+    background-color: ${(props) => props.theme.colors.white};
+    transform: ${(props) => (props.scrolled ? "scaleY(1)" : "scaleY(0)")};
+    transition: transform 0.3s ease-in-out;
+  }
 `;
 
-const Logo = styled.img`
+interface LogoProps {
+  scrolled: boolean;
+}
+
+const Logo = styled(motion.img)<LogoProps>`
   grid-area: lo;
 
-  width: 8rem;
-  height: 8rem;
+  width: ${(props) => (props.scrolled ? "6rem" : "8rem")};
+  height: ${(props) => (props.scrolled ? "6rem" : "8rem")};
   object-fit: contain;
 `;
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
   justify-self: end;
 
   display: grid;
@@ -108,4 +132,38 @@ const NavIcon = styled.svg`
     stroke: ${(props) => props.theme.colors.black};
   }
 `;
-export { Header, Logo, Nav, NavLink, NavItemGroup, NavIcon };
+
+const SubMenuPanel = styled(motion.div)`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  transform-origin: center top;
+
+  width: 100%;
+  height: 50rem;
+  background-color: ${(props) => props.theme.colors.white};
+`;
+
+const subMenuPanelVariants: Variants = {
+  initial: {
+    scaleY: 0,
+  },
+  enter: {
+    scaleY: 1,
+  },
+  exit: {
+    scaleY: 0,
+  },
+};
+
+export {
+  Header,
+  Logo,
+  Nav,
+  NavLink,
+  NavItemGroup,
+  NavIcon,
+  SubMenuPanel,
+  subMenuPanelVariants,
+};
