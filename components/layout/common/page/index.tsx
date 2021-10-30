@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import { PageContainer, ContentWrapper } from "./styles";
 import NavBar from "../nav-bar";
+import Footer from "../footer";
 
 interface Props {
   title?: string;
@@ -20,6 +21,7 @@ const Page: React.FC<Props> = ({
       </Head>
       <NavBar />
       <ContentWrapper>{children}</ContentWrapper>
+      <Footer />
     </PageContainer>
   );
 };
