@@ -1,6 +1,8 @@
 declare global {
   type Alignment = "left" | "right" | "center" | "justify";
 
+  type InputChangeEvent = FormEvent<HTMLInputElement | HTMLTextAreaElement>;
+
   interface Image {
     src: string;
     blurUrl: string;
