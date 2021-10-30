@@ -12,6 +12,9 @@ declare module "styled-components" {
       primaryDark: string;
       secondary: string;
       secondaryDark: string;
+      error: string;
+      warning: string;
+      success: string;
     };
     fonts: {
       primary: string;
@@ -33,6 +36,9 @@ const theme: DefaultTheme = {
     primaryDark: "#c3b098",
     secondary: "#f7f0e7",
     secondaryDark: "#ebd9c3",
+    error: "#f54d1e",
+    warning: "#e8bc0d",
+    success: "#29c46a",
   },
   fonts: {
     primary:
