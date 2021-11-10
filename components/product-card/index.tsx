@@ -25,11 +25,11 @@ const ProductCard: React.FC<Props> = ({}: Props): JSX.Element => {
       <CardOverlay>
         <CardDetailsGroup>
           <ProductNameGroup>
-            <TertiaryHeading>Tonic Moisturizing</TertiaryHeading>
+            <TertiaryHeading align="left">Tonic Moisturizing</TertiaryHeading>
             <Label>For dry skin</Label>
           </ProductNameGroup>
           <ProductPriceGroup>
-            <TertiaryHeading>LKR 3450</TertiaryHeading>
+            <TertiaryHeading align="right">LKR 3450</TertiaryHeading>
             <Label>200 ml</Label>
           </ProductPriceGroup>
         </CardDetailsGroup>
