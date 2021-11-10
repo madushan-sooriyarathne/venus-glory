@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface GridComponentProps {
   layout: boolean;
@@ -10,9 +10,12 @@ interface GridComponentProps {
   rowSize: string;
 }
 
+const layout = css`
+  grid-column: content-start / content-end;
+`;
+
 const GridComponent = styled.div<GridComponentProps>`
-  grid-column: ${(props) =>
-    props.layout ? "content-start / content-end" : "1 / 2"};
+  ${(props) => props.layout && layout}
 
   width: 100%;
   height: auto;
