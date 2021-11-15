@@ -11,6 +11,7 @@ const Heading = styled.h1<HeadingProps>`
   font-family: ${(props) => props.theme.fonts.secondary};
   font-weight: 400;
   letter-spacing: 1px;
+  text-align: ${(props) => props.align};
   color: ${(props) =>
     props.light ? props.theme.colors.primary : props.theme.colors.blackLight};
 `;
