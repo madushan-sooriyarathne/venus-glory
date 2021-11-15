@@ -2,6 +2,7 @@ import ImageBanner from "@components/layout/common/image-banner/indes";
 import ImageContentSection from "@components/layout/common/image-content-section";
 import Page from "@components/layout/common/page";
 import ProductGrid from "@components/layout/common/product-grid";
+import AboutSection from "@components/layout/homepage/about-section";
 import BestSellers from "@components/layout/homepage/bestsellers-section";
 import Categories from "@components/layout/homepage/categories";
 import GenderSection from "@components/layout/homepage/gender-section";
@@ -29,6 +30,7 @@ const HomePage: NextPage = (): JSX.Element => {
         route="/shop/categories/gifts"
         routeLabel="Explore Gifts"
       />
+      <AboutSection />
     </Page>
   );
 };
