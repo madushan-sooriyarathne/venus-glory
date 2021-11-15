@@ -1,3 +1,4 @@
+import ImageBanner from "@components/layout/common/image-banner/indes";
 import ImageContentSection from "@components/layout/common/image-content-section";
 import Page from "@components/layout/common/page";
 import ProductGrid from "@components/layout/common/product-grid";
@@ -20,6 +21,13 @@ const HomePage: NextPage = (): JSX.Element => {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
         heading="Perfumes"
         route="/shop/categories/perfumes"
+      />
+      <ImageBanner
+        image={{ src: "/assets/img/gifts.png", blurUrl: "" }}
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        heading="Gifts"
+        route="/shop/categories/gifts"
+        routeLabel="Explore Gifts"
       />
     </Page>
   );
