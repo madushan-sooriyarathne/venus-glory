@@ -20,7 +20,10 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
     };
-    gradients: {};
+    gradients: {
+      cover: string;
+      coverUpside: string;
+    };
     shadows: {};
     responsive: {};
   }
@@ -46,7 +49,12 @@ const theme: DefaultTheme = {
     secondary:
       "'Noto Serif Display', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
   },
-  gradients: {},
+  gradients: {
+    cover:
+      "linear-gradient(45deg, rgba(247,240,231,0.8) 18%, rgba(247,240,231,0.2) 100%)",
+    coverUpside:
+      "linear-gradient(180deg, rgba(247,240,231,0.8) 18%, rgba(247,240,231,0.2) 100%)",
+  },
   shadows: {},
   responsive: {},
 };
