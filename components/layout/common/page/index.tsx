@@ -1,4 +1,4 @@
-import { ReactNodeArray, ReactNode, Children } from "react";
+import { ReactNode } from "react";
 import Head from "next/head";
 
 import { PageContainer, ContentWrapper } from "./styles";
@@ -7,7 +7,7 @@ import Footer from "../footer";
 
 interface Props {
   title?: string;
-  children: ReactNodeArray | ReactNode;
+  children: ReactNode[] | ReactNode;
 }
 
 const Page: React.FC<Props> = ({

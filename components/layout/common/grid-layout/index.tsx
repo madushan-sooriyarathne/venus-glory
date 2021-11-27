@@ -1,8 +1,8 @@
-import { ReactNode, ReactNodeArray } from "react";
+import { ReactNode } from "react";
 import { GridComponent } from "./styles";
 
 interface Props {
-  children: ReactNode | ReactNodeArray;
+  children: ReactNode | ReactNode[];
   layout?: boolean;
   rows?: number;
   columns?: number;
