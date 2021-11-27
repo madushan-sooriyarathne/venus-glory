@@ -12,7 +12,7 @@ import {
 } from "./styles";
 import { navLinks } from "@site-data";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 const NavBar: React.FC = (): JSX.Element => {
@@ -35,6 +35,13 @@ const NavBar: React.FC = (): JSX.Element => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Navigation dropdown menu open handler
+  const handleDropdownMenuOpen = useCallback((route: string) => {
+    if (route === "/shop") {
+      setSubMenuOpen(true);
+    }
+  }, []);
+
   return (
     <Header scrolled={scrolled || subMenuOpened}>
       <AnimateSharedLayout>
@@ -51,7 +58,7 @@ const NavBar: React.FC = (): JSX.Element => {
               <Link href={link.url} key={link.name.toLowerCase()}>
                 <NavLink
                   active={router.pathname === link.url}
-                  onHoverStart={() => setSubMenuOpen(true)}
+                  onHoverStart={() => handleDropdownMenuOpen(link.url)}
                   onHoverEnd={() => setSubMenuOpen(false)}
                 >
                   {link.name}
@@ -81,6 +88,8 @@ const NavBar: React.FC = (): JSX.Element => {
               transition={{
                 delay: 0.1,
               }}
+              onHoverStart={() => setSubMenuOpen(true)}
+              onHoverEnd={() => setSubMenuOpen(false)}
             />
           )}
         </AnimatePresence>
