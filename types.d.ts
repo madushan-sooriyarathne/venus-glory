@@ -9,17 +9,41 @@ declare global {
     alt?: string;
   }
 
-  interface Product {
+  // Storefront related types
+  type Currency = "USD" | "LKR" | "INR";
+
+  interface StorefrontNode {
     id: string;
+    slug: string;
     name: string;
-    price: string;
+    description: string;
+    image: Image;
+  }
+
+  interface Category extends StorefrontNode {
+    parent?: Category;
+    child?: Category;
+    products?: Product[];
+  }
+
+  interface Collection extends StorefrontNode {
+    products?: Product[];
+  }
+
+  interface Product extends StorefrontNode {
+    pricing: {
+      onSale: boolean;
+      currency: Currency;
+      price: number;
+      discount: number;
+    };
     size: string;
-    image: string;
-    otherImages: string[];
-    category: string;
-    discount: string;
+    otherImages: Image[];
+    category?: Category;
     new: boolean;
     bestseller: boolean;
+    usage?: string;
+    ingredients?: string[];
   }
 }
 
