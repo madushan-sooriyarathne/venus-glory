@@ -1,7 +1,14 @@
 import Page from "@components/layout/common/page";
+import ProductSection from "@components/layout/product-page/product-section";
+import RelatedProductsSection from "@components/layout/product-page/related-products";
 
 import { products } from "@site-data";
-import { GetStaticProps, GetStaticPropsResult } from "next";
+import {
+  GetStaticPaths,
+  GetStaticPathsResult,
+  GetStaticProps,
+  GetStaticPropsResult,
+} from "next";
 
 interface Props {
   product: Product;
@@ -10,7 +17,8 @@ interface Props {
 const ProductPage: React.FC<Props> = ({ product }: Props): JSX.Element => {
   return (
     <Page>
-      <h1>This is individual Product Page</h1>
+      <ProductSection product={product} />
+      <RelatedProductsSection relatedProducts={[product]} />
     </Page>
   );
 };
@@ -23,5 +31,14 @@ const getStaticProps: GetStaticProps = (): GetStaticPropsResult<Props> => {
   };
 };
 
+const getStaticPaths: GetStaticPaths = (): GetStaticPathsResult => {
+  return {
+    paths: products.map((product) => ({
+      params: { productId: product.slug },
+    })),
+    fallback: false,
+  };
+};
+
 export default ProductPage;
-export { getStaticProps };
+export { getStaticProps, getStaticPaths };
