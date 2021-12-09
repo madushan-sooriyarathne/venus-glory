@@ -1,40 +1,55 @@
+import { useState } from "react";
+import Link from "next/link";
+
 import TertiaryHeading from "@components/headings/tertiary-heading";
 import ImageComponent from "@components/image-component";
 import {
   Card,
-  CardOverlay,
-  CardDetailsGroup,
-  ProductNameGroup,
-  ProductPriceGroup,
-  Label,
   BackgroundImageWrapper,
+  BackgroundImageHolder,
+  ProductDetails,
+  ProductDetailsGroup,
+  ProductName,
+  ProductPrice,
+  AddToFavoriteButton,
 } from "./styles";
 
 interface Props {
-  // product: Product;
+  product: Product;
 }
 
-const ProductCard: React.FC<Props> = ({}: Props): JSX.Element => {
+const ProductCard: React.FC<Props> = ({ product }: Props): JSX.Element => {
+  const [fav, toggleFav] = useState<boolean>(false);
+
+  const handleAddToFav = () => {
+    toggleFav((prevState) => !prevState);
+  };
+
   return (
-    <Card>
-      <BackgroundImageWrapper>
-        <ImageComponent
-          image={{ src: "/assets/img/product-01.jpg", blurUrl: "" }}
-        />
-      </BackgroundImageWrapper>
-      <CardOverlay>
-        <CardDetailsGroup>
-          <ProductNameGroup>
-            <TertiaryHeading align="left">Tonic Moisturizing</TertiaryHeading>
-            <Label>For dry skin</Label>
-          </ProductNameGroup>
-          <ProductPriceGroup>
-            <TertiaryHeading align="right">LKR 3450</TertiaryHeading>
-            <Label>200 ml</Label>
-          </ProductPriceGroup>
-        </CardDetailsGroup>
-      </CardOverlay>
-    </Card>
+    <Link href={`/shop/${product.slug}`}>
+      <Card>
+        <BackgroundImageHolder>
+          <BackgroundImageWrapper>
+            <ImageComponent image={product.image} />
+          </BackgroundImageWrapper>
+        </BackgroundImageHolder>
+        <ProductDetails>
+          <ProductDetailsGroup>
+            <ProductName>{product.name}</ProductName>
+            <ProductPrice>
+              {`${product.pricing.currency} ${product.pricing.price}`}
+            </ProductPrice>
+          </ProductDetailsGroup>
+          <AddToFavoriteButton onClick={handleAddToFav}>
+            <use
+              xlinkHref={`/assets/svg/sprites.svg#${
+                fav ? "fav-filled" : "fav"
+              }`}
+            />
+          </AddToFavoriteButton>
+        </ProductDetails>
+      </Card>
+    </Link>
   );
 };
 

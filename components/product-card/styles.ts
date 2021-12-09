@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+const BackgroundImageHolder = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 30rem;
+
+  overflow: hidden;
+`;
+
 const BackgroundImageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -12,72 +20,90 @@ const Card = styled.div`
   height: 100%;
   min-height: 40rem;
 
-  position: relative;
-  z-index: 0;
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  align-items: start;
+  justify-items: start;
+  row-gap: 2rem;
+  /* background-color: ${(props) => props.theme.colors.secondary}; */
 
-  overflow: hidden;
-
-  &:hover ${BackgroundImageWrapper} {
+  &:hover ${BackgroundImageHolder} ${BackgroundImageWrapper} {
     transform: scale(1.1);
   }
 `;
 
-const CardOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
+const ProductDetails = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
 
   padding: 3rem;
 
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  align-items: end;
-  justify-content: start;
-  /* justify-content: stretch; */
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content;
+  grid-template-areas: "de af";
+  align-items: center;
+  justify-items: start;
+  gap: 5rem;
 `;
 
-const CardDetailsGroup = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 3rem;
-`;
-
-const ProductNameGroup = styled.div`
+const ProductDetailsGroup = styled.div`
+  grid-area: de;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 0.5rem;
 `;
 
-const ProductPriceGroup = styled.div`
-  justify-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
+const ProductName = styled.p`
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: ${(props) => props.theme.fonts.secondary};
+  letter-spacing: 1px;
+  /* text-transform: uppercase; */
+  text-align: left;
+
+  color: ${(props) => props.theme.colors.black};
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.blackLight};
+  }
 `;
 
-const Label = styled.span`
-  font-size: 1.3rem;
-  font-weight: 600;
+const ProductPrice = styled.p`
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: left;
+
   color: ${(props) => props.theme.colors.blackLight};
+`;
+
+const AddToFavoriteButton = styled.svg`
+  grid-area: af;
+  width: 2rem;
+  height: 2rem;
+  fill: ${(props) => props.theme.colors.primaryDark};
+  stroke: ${(props) => props.theme.colors.primaryDark};
+  cursor: pointer;
+
+  &:hover {
+    fill: ${(props) => props.theme.colors.primary};
+    transform: translate();
+  }
 `;
 
 export {
   Card,
-  CardOverlay,
-  CardDetailsGroup,
-  ProductNameGroup,
-  ProductPriceGroup,
-  Label,
   BackgroundImageWrapper,
+  BackgroundImageHolder,
+  ProductDetails,
+  ProductDetailsGroup,
+  ProductName,
+  ProductPrice,
+  AddToFavoriteButton,
 };
