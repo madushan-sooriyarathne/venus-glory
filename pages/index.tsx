@@ -7,16 +7,22 @@ import BestSellers from "@components/layout/homepage/bestsellers-section";
 import Categories from "@components/layout/homepage/categories";
 import GenderSection from "@components/layout/homepage/gender-section";
 import Hero from "@components/layout/homepage/hero";
-import { NextPage } from "next";
+import { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
 
-const HomePage: NextPage = (): JSX.Element => {
+import { products } from "@site-data";
+
+interface Props {
+  products: Product[];
+}
+
+const HomePage: NextPage<Props> = ({ products }: Props): JSX.Element => {
   return (
     <Page>
       <Hero />
       <Categories />
-      <BestSellers />
+      <BestSellers bestSellerProducts={products} />
       <GenderSection />
-      <ProductGrid title="Latest Products" route="/shop" />
+      <ProductGrid title="Latest Products" route="/shop" products={products} />
       <ImageContentSection
         image={{ src: "/assets/img/perfumes.jpg", blurUrl: "" }}
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
@@ -35,4 +41,13 @@ const HomePage: NextPage = (): JSX.Element => {
   );
 };
 
+const getStaticProps: GetStaticProps = (): GetStaticPropsResult<Props> => {
+  return {
+    props: {
+      products,
+    },
+  };
+};
+
 export default HomePage;
+export { getStaticProps };
