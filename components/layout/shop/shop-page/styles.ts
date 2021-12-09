@@ -63,7 +63,7 @@ const ProductCategoryGrid = styled.div`
   height: auto;
 
   display: grid;
-  grid-template-columns: repeat(3, minmax(min-content, 1fr));
+  grid-template-columns: repeat(4, minmax(min-content, 1fr));
   grid-auto-rows: min-content;
   align-items: start;
   justify-items: center;

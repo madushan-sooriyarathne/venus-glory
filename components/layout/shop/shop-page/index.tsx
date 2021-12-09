@@ -13,7 +13,11 @@ import {
   ProductCategoryGrid,
 } from "./styles";
 
-const ShopPage: React.FC = (): JSX.Element => {
+interface Props {
+  products: Product[];
+}
+
+const ShopPage: React.FC<Props> = ({ products }: Props): JSX.Element => {
   interface FormikProps {
     radio: string;
     checked: string[];
@@ -28,6 +32,8 @@ const ShopPage: React.FC = (): JSX.Element => {
       alert(values.radio);
     },
   });
+
+  // TODO: Add logic to group products into categories. & Fix product list mapping
 
   return (
     <ShopContainer>
@@ -78,12 +84,14 @@ const ShopPage: React.FC = (): JSX.Element => {
             </PrimaryButton>
           </ProductCategoryTitle>
           <ProductCategoryGrid>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
           </ProductCategoryGrid>
         </ProductCategorySection>
         <ProductCategorySection>
@@ -94,12 +102,14 @@ const ShopPage: React.FC = (): JSX.Element => {
             </PrimaryButton>
           </ProductCategoryTitle>
           <ProductCategoryGrid>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
           </ProductCategoryGrid>
         </ProductCategorySection>
       </ProductArea>
