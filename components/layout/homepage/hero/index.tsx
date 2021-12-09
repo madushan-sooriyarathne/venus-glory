@@ -9,7 +9,7 @@ const Hero: React.FC = (): JSX.Element => {
       <ImageComponent image={{ src: "/assets/img/hero-bg.jpg", blurUrl: "" }} />
       <HeroContent>
         <TitleGroup>
-          <PrimaryHeading>
+          <PrimaryHeading align="left">
             Natural cosmetics for gentle skin care
           </PrimaryHeading>
           <PrimaryButton route="/shop">Shop Now</PrimaryButton>
