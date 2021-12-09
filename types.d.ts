@@ -45,6 +45,50 @@ declare global {
     usage?: string;
     ingredients?: string[];
   }
+
+  type AddressType = "Billing" | "Shipping";
+
+  interface Address {
+    id: string;
+    type: AddressType;
+    firstName: string;
+    lastName: string;
+    company?: string;
+    streetAddressOne: string;
+    streetAddressTwo?: string;
+    city: string;
+    postalCode: number;
+    country: string;
+  }
+
+  type PaymentMethodTypes =
+    | "Card"
+    | "Store Pickup with Cash"
+    | "Cash on Delivery";
+
+  interface PaymentCard {
+    network: "VISA" | "MASTER";
+    cardNumber: string;
+    expDate: string;
+  }
+
+  interface User {
+    id: string;
+    email: string;
+    firstName: string;
+    lastName?: string;
+    dateJoined: Date;
+    isActive: boolean;
+    address: {
+      default: string;
+      billing: Address;
+      shipping: Address;
+    };
+    paymentMethods: {
+      default: PaymentCard;
+      other: PaymentCard[];
+    };
+  }
 }
 
 export {};
