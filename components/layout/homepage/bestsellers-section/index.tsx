@@ -12,7 +12,15 @@ import {
   Title,
 } from "./styles";
 
-const BestSellers: React.FC = (): JSX.Element => {
+interface Props {
+  bestSellerProducts: Product[];
+}
+
+const BestSellers: React.FC<Props> = ({
+  bestSellerProducts,
+}: Props): JSX.Element => {
+  // Add logic to slide the products
+
   return (
     <BestSellersSection>
       <Title>
@@ -27,8 +35,8 @@ const BestSellers: React.FC = (): JSX.Element => {
       </Title>
       <ProductSlider>
         <Products>
-          <ProductCard />
-          <ProductCard />
+          <ProductCard product={bestSellerProducts[0]} />
+          <ProductCard product={bestSellerProducts[0]} />
         </Products>
         <SliderControls>
           <ControlButton>
