@@ -42,7 +42,7 @@ const products: Product[] = [
     },
     size: "1.0 oz",
     image: {
-      src: "/assets/img/products/1.png",
+      src: "/assets/img/products/1.jpg",
       blurUrl: "",
     },
     otherImages: [{ src: "/assets/img/products/2.png", blurUrl: "" }],
