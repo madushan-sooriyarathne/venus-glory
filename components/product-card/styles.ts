@@ -28,6 +28,13 @@ const Card = styled.div`
   row-gap: 2rem;
   /* background-color: ${(props) => props.theme.colors.secondary}; */
 
+  box-shadow: ${(props) => props.theme.shadows.close};
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: ${(props) => props.theme.shadows.spread};
+  }
+
   &:hover ${BackgroundImageHolder} ${BackgroundImageWrapper} {
     transform: scale(1.1);
   }
@@ -37,7 +44,7 @@ const ProductDetails = styled.div`
   width: 100%;
   height: auto;
 
-  padding: 3rem;
+  padding: 0 2rem 2rem 2rem;
 
   display: grid;
   grid-template-columns: 1fr min-content;
