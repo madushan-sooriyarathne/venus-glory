@@ -24,7 +24,10 @@ declare module "styled-components" {
       cover: string;
       coverUpside: string;
     };
-    shadows: {};
+    shadows: {
+      spread: string;
+      close: string;
+    };
     responsive: {};
   }
 }
@@ -55,7 +58,10 @@ const theme: DefaultTheme = {
     coverUpside:
       "linear-gradient(180deg, rgba(247,240,231,0.8) 18%, rgba(247,240,231,0.2) 100%)",
   },
-  shadows: {},
+  shadows: {
+    spread: "0px 4px 22px 0px rgba(0,0,0,0.1)",
+    close: "0px 4px 8px 0px rgba(0,0,0,0.1)",
+  },
   responsive: {},
 };
 

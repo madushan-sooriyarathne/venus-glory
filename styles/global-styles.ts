@@ -27,12 +27,15 @@ const GlobalStyles: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
          font-family:  ${(props) => props.theme.fonts.primary};
         font-weight: 400;
         font-size: 1.5rem;
-         color: ${(props) => props.theme.colors.black};
         letter-spacing: 0.5px;
+         color: ${(props) => props.theme.colors.black};
+
 
         text-rendering: optimizeLegibility;
         font-smooth: always;
         -webkit-font-smoothing: antialiased;
+
+  
     }
 
     p {
