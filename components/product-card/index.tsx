@@ -26,30 +26,30 @@ const ProductCard: React.FC<Props> = ({ product }: Props): JSX.Element => {
   };
 
   return (
-    <Link href={`/shop/${product.slug}`}>
-      <Card>
+    <Card>
+      <Link href={`/shop/${product.slug}`}>
         <BackgroundImageHolder>
           <BackgroundImageWrapper>
             <ImageComponent image={product.image} />
           </BackgroundImageWrapper>
         </BackgroundImageHolder>
-        <ProductDetails>
+      </Link>
+      <ProductDetails>
+        <Link href={`/shop/${product.slug}`}>
           <ProductDetailsGroup>
             <ProductName>{product.name}</ProductName>
             <ProductPrice>
               {`${product.pricing.currency} ${product.pricing.price}`}
             </ProductPrice>
           </ProductDetailsGroup>
-          <AddToFavoriteButton onClick={handleAddToFav}>
-            <use
-              xlinkHref={`/assets/svg/sprites.svg#${
-                fav ? "fav-filled" : "fav"
-              }`}
-            />
-          </AddToFavoriteButton>
-        </ProductDetails>
-      </Card>
-    </Link>
+        </Link>
+        <AddToFavoriteButton onClick={handleAddToFav}>
+          <use
+            xlinkHref={`/assets/svg/sprites.svg#${fav ? "fav-filled" : "fav"}`}
+          />
+        </AddToFavoriteButton>
+      </ProductDetails>
+    </Card>
   );
 };
 
