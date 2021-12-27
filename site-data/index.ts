@@ -22,22 +22,22 @@ const products: Product[] = [
     name: "Ulta: Gradual Tan Face Drops",
     description: `The Ulta Beauty Collection's Gradual Self Tan Face Drops effortlessly delivers a glowing complexion while you sleep. Just add them to your nightly moisturizer for a subtle, healthy glow by morning.
 
-**Features**
+### Features
 - Aloe Vera and Green Tea help soothe and hydrate skin
 - Mixes well with most moisturizers
 
-**Benefits**
+### Benefits
 - Gradually build a bronze, glowing complexion
 - Dermatologist Tested
 - Cruelty-free
 
-**Formulated Without**
+### Formulated Without
 - Parabens
 `,
     pricing: {
       onSale: true,
       currency: "LKR",
-      discount: 0,
+      discount: 10,
       price: 2699,
     },
     size: "1.0 oz",
@@ -48,17 +48,13 @@ const products: Product[] = [
     otherImages: [{ src: "/assets/img/products/2.png", blurUrl: "" }],
     category: categories[0],
     usage: `
-        1. Wash and dry face prior to use.
+1. Wash and dry face prior to use.
+2. Mix 2-4 drops with your regular night cream in the palm of your hand.
+3. Apply evenly all over face, massaging into hairline and jaw.
+4. Wash hands immediately after use.
+5. Use nightly to maintain a healthy-looking tan.
 
-        2. Mix 2-4 drops with your regular night cream in the palm of your hand.
-
-        3. Apply evenly all over face, massaging into hairline and jaw.
-
-        4. Wash hands immediately after use.
-
-        5. Use nightly to maintain a healthy-looking tan.
-
-        Precautions: Do not apply directly to face or to your moisturizer jar. This product must be combined with a moisturizer in your hands.
+Precautions: Do not apply directly to face or to your moisturizer jar. This product must be combined with a moisturizer in your hands.
 `,
     ingredients: [
       "Water",
