@@ -8,6 +8,7 @@ declare module "styled-components" {
       black: string;
       blackDark: string;
       blackLight: string;
+      gray: string;
       primary: string;
       primaryDark: string;
       secondary: string;
@@ -38,6 +39,7 @@ const theme: DefaultTheme = {
     black: "#353b27",
     blackDark: "#25291b",
     blackLight: "#5d6252",
+    gray: "#ccc",
     primary: "#f4f0ed",
     primaryDark: "#c3b098",
     secondary: "#f7f0e7",
